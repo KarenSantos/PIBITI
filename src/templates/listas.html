@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	<p><b>O que você quer ouvir?</b></p>
+{% endblock %}
+
+{% block playlists %}
+	{% for key, value in playlists.items() %}
+		<form action="{{url_for('ouvir')}}" method=post>
+			<input type="hidden" name="video" value="{{value[2]}}">
+			<button value="{{key}}" name="playlist" type="submit">
+				<p><b>{{value[0]}}</b></p>
+				<p><img src="/static/images/{{value[1]}}" width="60" height="60"></p>
+			</button>
+		</form>
+	{% endfor %}
+	
+{% endblock %}

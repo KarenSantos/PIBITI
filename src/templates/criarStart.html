@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	<p><b>Por onde começar?</b></p>
+{% endblock %}
+
+{% block criar %}
+	
+	<form action="{{url_for('criarStart')}}" method="post">
+		<font size="3" face="Tahoma">
+		
+		{% if resp == "all3options" %} 
+			<input type="radio" name="start" value="paisagem1">  Primeira paisagem<br><br>
+  			<input type="radio" name="start" value="transicao">  Música de transição<br><br>
+  			<input type="radio" name="start" value="paisagem2">  Segunda paisagem<br><br>
+  		{% else %}
+  			<input type="radio" name="start" value="paisagem1">  Primeira paisagem<br><br>
+  			
+		{% endif %}
+  		
+		<p><input type="submit" value="     OK     " /></p>
+		<br>
+  		</font>
+	</form>
+
+{% endblock %}
+
+{% block msg %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<b><font color="red" size="3" face="Tahoma">
+				{% for message in messages %}
+					{{message}}
+				{% endfor %}
+			</font></b><br>
+		{% endif %}
+	{% endwith %}
+{% endblock %}

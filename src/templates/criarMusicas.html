@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block criar %}
+	<p>Selecione o link da musica e clique em inserir.</p>
+	
+	<a href="http://www.youtube.com" target="_blank"><button type="button"><b><font size="3">Buscar link YOUTUBE</font></b></button></a>
+	<br><br>
+	<form action="{{url_for('criarMusicas')}}" method="post">
+		<p>Link da musica {{numDaMusica}}:
+		<br><input type="text" size=60em name="musica"/>
+		<p>Nome da musica {{numDaMusica}}:
+		<br><input type="text" size=60em name="nomeDaMusica"/>
+		<p><input type="submit" value="INSERIR" /></p>
+	</form>
+
+{% endblock %}
+
+{% block playlist %}
+	
+	{% for musicaInfo in musicas %}
+		<p><b> - {{musicaInfo[0]}}</b>
+	{% endfor %}
+	
+	{% if tamanhoOk %}
+		<form action="{{url_for('criarDados')}}" method=get>
+			<button name="proximo" type="submit">
+				<p><b>Proximo >></b></p>
+			</button>
+		</form>
+	{% endif %}
+	
+{% endblock %}
+
+{% block msg %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<b><font color="red" size="3" face="Tahoma">
+				{% for message in messages %}
+					{{message}}
+				{% endfor %}
+			</font></b><br>
+		{% endif %}
+	{% endwith %}
+{% endblock %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PlaySome</title>
+		<link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+		<link rel="stylesheet" type="text/css" href="/static/style2.css" />
+		<script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="jquery.poptrox-1.0.js"></script>
+		<!-- Bootstrap -->
+    	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<div id="header-wrapper">
+			<div id="header">
+				<div id="logo">
+					<h1>PlaySome</h1>
+					<p>Crie sua própria playlist e compartilhe!</p>
+				</div>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><a href="{{url_for('main')}}">Home</a></li>
+					<li><a href="{{url_for('listas')}}">Playlists</a></li>
+					<li><a href="{{url_for('criar')}}">Crie sua Playlist</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="wrapper">
+			<div id="page">
+				<div id="box1">
+					{% block titulo %}{% endblock %}
+				</div>
+				<div id="content">
+					<div id="criar">
+						{% block criar %}{% endblock %}
+						{% block msg %}{% endblock %}
+					</div>
+					<div id="playlist">
+						{% block playlists %}{% endblock %}
+						{% block inserir %}{% endblock %}
+						{% block inserido %}{% endblock %}
+						{% block musicInfo %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<p>&copy; Sitename.com. All rights reserved. Design by 
+			<a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>. 
+			Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
+		</div>
+		
+		<script src="static/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

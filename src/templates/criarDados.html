@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+	<a href="{{url_for('main')}}">
+		<font color="black">
+			<h1>PlaySome</h1>
+			<p class="lead">Crie sua própria playlist e compartilhe!</p>
+		</font>
+	</a>
+{% endblock %}
+
+{% block body %}
+		
+	<form action="" method="post" enctype="multipart/form-data">
+		<p><b>Nome da playlist: </b><input type="text" name="nomeDaPlaylist" size="31em" value="{{nomeDaPlaylist}}"/></p>
+		<p><b>Descrição:</b><br>
+		<font size="2">Que critérios foram utilizados para a escolha das músicas?</font></p>
+		<p><textarea rows="7" cols="43" name="comentario" />{{comentario}}</textarea></p>
+		
+		<label for="file">Imagem:</label>
+		<input type="file" name="file" accept="image/*" ><br>
+		<p><img src="/static/images/{{image}}" width="100" height="60"></p>
+		<br><br>
+		<button name="salvar" type="submit">
+				<p><b>Salvar Playlist</b></p>
+		</button>
+	</form>
+{% endblock %}
+
+{% block playlist %}
+	
+	{% for musicaInfo in musicas %}
+		<p><b> - {{musicaInfo[0]}}</b>
+	{% endfor %}
+
+{% endblock %}
+
+{% block msg %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<b><font color="red" size="3" face="Tahoma">
+				{% for message in messages %}
+					{{message}}
+				{% endfor %}
+			</font></b><br>
+		{% endif %}
+	{% endwith %}
+{% endblock %}

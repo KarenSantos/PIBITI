@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	<p><b>Vamos começar?</b></p>
+{% endblock %}
+
+{% block criar %}
+	<p class="lead">Nosso objetivo é criar listas de reprodução com diferentes
+	 "paisagens" musicais, com relação ao gênero musical.
+	 Tente criar uma playlist em que as primeiras músicas são
+	 diferentes das últimas, e as musicas intermediarias fazem a
+	 ligação entre essas duas paisagens.</p>
+	 
+	<br><br><br> 
+	<a href="{{url_for('criarStart')}}">
+		<button class="btn btn-success" type="button">
+			<font size="4"><b>Próximo</b></font>
+		</button>
+	</a>
+	<br>
+	<br>
+	
+{% endblock %}

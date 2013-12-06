@@ -1,0 +1,64 @@
+body{
+	margin: 0;
+	padding: 0;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    color:black;
+    background: black;
+}
+
+#header-wrapper {
+	width: 100%;
+	background: #BBFAAA;
+	overflow: hidden;
+}
+
+#header {
+	top: 1em;
+	left: 5em;
+	position: relative;
+}
+
+#maisListas {
+	left: 7em;
+	position: fixed;
+	bottom: 2em;
+}
+
+#botaoCriar {
+    position: fixed;
+    top: 2.7em;
+    alignment: center;
+    left: 40em;
+    width: 25%;
+}
+
+#wrapper {
+	left: 5em;
+	right: 5em;
+	top: 10em;
+	position: fixed;
+	height: 72%;
+	background: white;
+}
+
+#page {
+	left: 2em;
+	position: absolute;
+	overflow: auto;
+	width: 97%; 
+	height: 84%;
+}
+
+#content{
+	
+}
+
+#playlist {
+	left:45em;
+	top: 3em;
+	width: 53%;
+	height: 80%;
+	overflow: auto;
+	position: absolute;
+}

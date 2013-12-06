@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+	<a href="{{url_for('main')}}">
+		<font color="black">
+			<h1>PlaySome</h1>
+			<p class="lead">Crie sua própria playlist e compartilhe!</p>
+		</font>
+	</a>
+{% endblock %}
+
+{% block body %}
+		
+		<p>Sua playlist foi criada com sucesso!</p>
+		<p><b>{{nomeDaPlaylist}}</b>
+		<p><img src="/static/images/{{imagem}}" width="60" height="60"></p>
+		<br>
+	<form action="{{url_for('ouvir')}}" method="post">
+		<button value="{{novaPlay}}" name="playlist" type="submit">
+				<p><b>.    OK    .</b></p>
+		</button>
+	</form>
+{% endblock %}
+
+{% block playlist %}
+	
+	{% for musicaInfo in musicas %}
+		<p><b> - {{musicaInfo[0]}}</b>
+	{% endfor %}
+
+{% endblock %}

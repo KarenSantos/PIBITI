@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	<p><b>{{playlist[0]}}</b></p>
+{% endblock %}
+
+{% block criar %}
+	<p><iframe width="560" height="315" src="http://www.youtube.com/embed/{{video}}" frameborder="2" allowfullscreen></iframe></p>
+{% endblock %}
+
+{% block musicInfo %}
+	{% for musicaInfo in musicas %}
+		<li><a href="{{url_for('ouvir')}}" method="POST">{{musicaInfo[0]}}
+			<form action="{{url_for('ouvir')}}" method=post>
+				<input type="hidden" name="playlist" value="{{playlistName}}">
+				<input type="hidden" name="video" value="{{musicaInfo[1]}}">
+			</form>
+		</a></li>
+	{% endfor %}
+	
+{% endblock %}
